@@ -1,0 +1,3045 @@
+/* ================================================================
+   GLOBAL RESET
+================================================================ */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  background: #f5f7fb;
+  color: #172033;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+/* ================================================================
+   NAVBAR
+================================================================ */
+
+.navbar {
+  width: 100%;
+  height: 72px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 7%;
+
+  background: #ffffff;
+  border-bottom: 1px solid #e6e9ef;
+
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  font-size: 20px;
+  font-weight: 700;
+  color: #172033;
+}
+
+.navbar-icon {
+  font-size: 25px;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.navbar-links a {
+  font-size: 15px;
+  font-weight: 600;
+  color: #5d6678;
+
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.navbar-links a:hover {
+  color: #315efb;
+  transform: translateY(-1px);
+}
+
+/* ================================================================
+   COMMON
+================================================================ */
+
+.hero-tag,
+.form-tag,
+.result-label,
+.weather-label {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: #315efb;
+}
+
+.primary-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 14px 24px;
+
+  background: #315efb;
+  color: white;
+
+  border-radius: 10px;
+
+  font-weight: 700;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.primary-button:hover {
+  background: #244edb;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(49, 94, 251, 0.2);
+}
+
+/* ================================================================
+   HOME PAGE
+================================================================ */
+
+.home-page {
+  min-height: calc(100vh - 72px);
+}
+
+/* ================================================================
+   HERO
+================================================================ */
+
+.hero-section {
+  min-height: 600px;
+
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+
+  gap: 50px;
+
+  padding: 80px 8%;
+
+  background:
+    radial-gradient(circle at 80% 30%,
+      rgba(49, 94, 251, 0.12),
+      transparent 35%),
+    linear-gradient(135deg, #ffffff, #f3f6ff);
+}
+
+.hero-content {
+  max-width: 650px;
+}
+
+.hero-content h1 {
+  margin-top: 16px;
+
+  font-size: clamp(42px, 5vw, 70px);
+  line-height: 1.08;
+
+  letter-spacing: -2px;
+
+  color: #172033;
+}
+
+.hero-description {
+  max-width: 590px;
+
+  margin-top: 24px;
+
+  font-size: 18px;
+  color: #667085;
+}
+
+.hero-actions {
+  margin-top: 32px;
+}
+
+/* ================================================================
+   HERO VISUAL
+================================================================ */
+
+.hero-visual {
+  min-height: 400px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+
+  border-radius: 28px;
+
+  background:
+    linear-gradient(145deg,
+      rgba(49, 94, 251, 0.95),
+      rgba(76, 118, 255, 0.85));
+
+  overflow: hidden;
+
+  box-shadow: 0 25px 60px rgba(31, 51, 104, 0.2);
+}
+
+.hero-visual::before,
+.hero-visual::after {
+  content: "";
+
+  position: absolute;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.hero-visual::before {
+  width: 300px;
+  height: 300px;
+
+  top: -100px;
+  right: -70px;
+}
+
+.hero-visual::after {
+  width: 250px;
+  height: 250px;
+
+  bottom: -120px;
+  left: -70px;
+}
+
+.airplane-icon {
+  font-size: 100px;
+
+  transform: rotate(-10deg);
+
+  animation: airplaneFloat 3s ease-in-out infinite;
+}
+
+@keyframes airplaneFloat {
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(-10deg);
+  }
+
+  50% {
+    transform: translateY(-12px) rotate(-10deg);
+  }
+}
+
+.weather-info,
+.prediction-info {
+  position: absolute;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 11px 16px;
+
+  background: rgba(255, 255, 255, 0.95);
+
+  border-radius: 12px;
+
+  color: #172033;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+.weather-info {
+  top: 70px;
+  left: 35px;
+}
+
+.prediction-info {
+  bottom: 70px;
+  right: 35px;
+}
+
+/* ================================================================
+   FEATURES
+================================================================ */
+
+.features-section {
+  padding: 80px 8%;
+
+  background: #ffffff;
+}
+
+.features-section h2 {
+  text-align: center;
+
+  font-size: 36px;
+
+  margin-bottom: 45px;
+}
+
+.feature-grid {
+  max-width: 1100px;
+
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 25px;
+}
+
+.feature-card {
+  padding: 30px;
+
+  background: #f8f9fc;
+
+  border: 1px solid #e8ebf2;
+  border-radius: 18px;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+
+  box-shadow: 0 15px 35px rgba(31, 45, 75, 0.08);
+}
+
+.feature-icon {
+  width: 52px;
+  height: 52px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 18px;
+
+  background: #eaf0ff;
+
+  border-radius: 14px;
+
+  font-size: 25px;
+}
+
+.feature-card h3 {
+  margin-bottom: 8px;
+
+  font-size: 19px;
+}
+
+.feature-card p {
+  color: #697386;
+
+  font-size: 14px;
+}
+
+/* ================================================================
+   PREDICTION PAGE
+================================================================ */
+
+.prediction-page {
+  min-height: calc(100vh - 72px);
+
+  padding-bottom: 80px;
+}
+
+/* ================================================================
+   PREDICTION HERO
+================================================================ */
+
+.prediction-hero {
+  text-align: center;
+
+  padding: 65px 20px 45px;
+
+  background:
+    radial-gradient(circle at 50% 0%,
+      rgba(49, 94, 251, 0.1),
+      transparent 50%),
+    #ffffff;
+}
+
+.prediction-hero h1 {
+  margin-top: 12px;
+
+  font-size: clamp(36px, 5vw, 55px);
+  line-height: 1.1;
+}
+
+.prediction-hero>p:last-child {
+  max-width: 650px;
+
+  margin: 18px auto 0;
+
+  color: #697386;
+}
+
+/* ================================================================
+   PREDICTION CONTENT
+================================================================ */
+
+.prediction-content {
+  max-width: 1250px;
+
+  margin: 0 auto;
+
+  padding: 30px 30px 0;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(300px, 0.6fr);
+
+  gap: 28px;
+
+  align-items: start;
+}
+
+/* ================================================================
+   FORM
+================================================================ */
+
+.flight-form {
+  background: #ffffff;
+
+  border: 1px solid #e6e9ef;
+
+  border-radius: 20px;
+
+  padding: 32px;
+
+  box-shadow: 0 15px 40px rgba(25, 39, 69, 0.06);
+}
+
+.form-header {
+  margin-bottom: 28px;
+}
+
+.form-header h2 {
+  margin-top: 6px;
+
+  font-size: 27px;
+}
+
+.form-header p:last-child {
+  margin-top: 8px;
+
+  color: #697386;
+
+  font-size: 14px;
+}
+
+.form-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.form-group label {
+  font-size: 13px;
+
+  font-weight: 700;
+
+  color: #3e4759;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+
+  height: 46px;
+
+  padding: 0 13px;
+
+  background: #fafbfc;
+
+  border: 1px solid #dfe3ea;
+
+  border-radius: 9px;
+
+  color: #172033;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #315efb;
+
+  box-shadow: 0 0 0 3px rgba(49, 94, 251, 0.1);
+}
+
+.form-group input:disabled,
+.form-group select:disabled {
+  opacity: 0.6;
+
+  cursor: not-allowed;
+}
+
+/* ================================================================
+   WEATHER NOTICE
+================================================================ */
+
+.weather-notice {
+  display: flex;
+
+  gap: 13px;
+
+  margin-top: 25px;
+
+  padding: 16px;
+
+  background: #f0f5ff;
+
+  border: 1px solid #dce6ff;
+
+  border-radius: 12px;
+}
+
+.weather-notice>span {
+  font-size: 24px;
+}
+
+.weather-notice strong {
+  display: block;
+
+  font-size: 14px;
+
+  color: #244edb;
+}
+
+.weather-notice p {
+  margin-top: 3px;
+
+  font-size: 12px;
+
+  color: #667085;
+}
+
+/* ================================================================
+   PREDICT BUTTON
+================================================================ */
+
+.predict-button {
+  width: 100%;
+
+  margin-top: 22px;
+
+  height: 52px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background: #315efb;
+
+  color: #ffffff;
+
+  font-size: 15px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.predict-button:hover:not(:disabled) {
+  background: #244edb;
+
+  transform: translateY(-2px);
+
+  box-shadow: 0 12px 25px rgba(49, 94, 251, 0.2);
+}
+
+.predict-button:disabled {
+  opacity: 0.65;
+
+  cursor: not-allowed;
+}
+
+/* ================================================================
+   WEATHER CARD
+================================================================ */
+
+.weather-card {
+  background: #ffffff;
+
+  border: 1px solid #e6e9ef;
+
+  border-radius: 18px;
+
+  padding: 25px;
+
+  box-shadow: 0 12px 30px rgba(25, 39, 69, 0.05);
+}
+
+.weather-card-header {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  margin-bottom: 22px;
+}
+
+.weather-icon {
+  width: 46px;
+  height: 46px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #eef4ff;
+
+  border-radius: 12px;
+
+  font-size: 22px;
+}
+
+.weather-card-header h3 {
+  font-size: 20px;
+}
+
+.live-indicator {
+  margin-left: auto;
+
+  color: #1b9b55;
+
+  font-size: 11px;
+
+  font-weight: 800;
+}
+
+.weather-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 12px;
+}
+
+.weather-item {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 13px;
+
+  background: #f8f9fc;
+
+  border-radius: 11px;
+}
+
+.weather-item-icon {
+  font-size: 20px;
+}
+
+.weather-item-label {
+  display: block;
+
+  font-size: 11px;
+
+  color: #7a8394;
+}
+
+.weather-item strong {
+  display: block;
+
+  margin-top: 2px;
+
+  font-size: 14px;
+}
+
+.weather-loading {
+  padding: 25px 0;
+
+  text-align: center;
+
+  color: #697386;
+
+  font-size: 13px;
+}
+
+.weather-error-message {
+  color: #c0392b;
+
+  font-size: 13px;
+}
+
+/* ================================================================
+   INFO CARD
+================================================================ */
+
+.info-card {
+  display: flex;
+
+  gap: 13px;
+
+  margin-top: 20px;
+
+  padding: 20px;
+
+  background: #ffffff;
+
+  border: 1px solid #e6e9ef;
+
+  border-radius: 16px;
+}
+
+.info-card-icon {
+  font-size: 22px;
+}
+
+.info-card h3 {
+  font-size: 16px;
+
+  margin-bottom: 5px;
+}
+
+.info-card p {
+  color: #697386;
+
+  font-size: 12px;
+}
+
+/* ================================================================
+   ERROR
+================================================================ */
+
+.error-message {
+  max-width: 1190px;
+
+  margin: 20px auto 0;
+
+  padding: 16px 20px;
+
+  display: flex;
+
+  gap: 12px;
+
+  background: #fff2f0;
+
+  border: 1px solid #ffd6d1;
+
+  border-radius: 12px;
+
+  color: #a93226;
+}
+
+.error-message>span {
+  font-size: 20px;
+}
+
+.error-message strong {
+  font-size: 14px;
+}
+
+.error-message p {
+  margin-top: 2px;
+
+  font-size: 13px;
+}
+
+/* ================================================================
+   LOADING
+================================================================ */
+
+.loading-container {
+  padding: 50px 30px;
+
+  text-align: center;
+
+  background: #ffffff;
+
+  border: 1px solid #e6e9ef;
+
+  border-radius: 18px;
+
+  box-shadow: 0 12px 30px rgba(25, 39, 69, 0.05);
+}
+
+.loading-animation {
+  position: relative;
+
+  width: 90px;
+  height: 90px;
+
+  margin: 0 auto 25px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loading-plane {
+  position: relative;
+
+  z-index: 3;
+
+  font-size: 34px;
+
+  animation: planeFloat 1.5s ease-in-out infinite;
+}
+
+.loading-orbit {
+  position: absolute;
+
+  border: 2px solid #dce7ff;
+
+  border-radius: 50%;
+
+  animation: orbitPulse 1.8s ease-in-out infinite;
+}
+
+.orbit-one {
+  width: 65px;
+  height: 65px;
+}
+
+.orbit-two {
+  width: 88px;
+  height: 88px;
+
+  animation-delay: 0.3s;
+}
+
+.loading-container h3 {
+  margin-bottom: 8px;
+
+  font-size: 21px;
+
+  color: #192745;
+}
+
+.loading-container>p {
+  margin-bottom: 22px;
+
+  color: #697386;
+
+  font-size: 14px;
+}
+
+.loading-steps {
+  display: flex;
+
+  justify-content: center;
+
+  flex-wrap: wrap;
+
+  gap: 10px;
+}
+
+.loading-steps span {
+  padding: 7px 12px;
+
+  border-radius: 20px;
+
+  background: #f5f7fb;
+
+  color: #697386;
+
+  font-size: 12px;
+
+  font-weight: 600;
+}
+
+.loading-steps .loading-active {
+  color: #315efb;
+
+  background: #eef4ff;
+}
+
+@keyframes planeFloat {
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(-5deg);
+  }
+
+  50% {
+    transform: translateY(-7px) rotate(5deg);
+  }
+}
+
+@keyframes orbitPulse {
+
+  0%,
+  100% {
+    transform: scale(0.92);
+
+    opacity: 0.5;
+  }
+
+  50% {
+    transform: scale(1.05);
+
+    opacity: 1;
+  }
+}
+
+/* ================================================================
+   PREDICTION RESULT
+================================================================ */
+
+.prediction-result {
+  padding: 30px;
+
+  background: #ffffff;
+
+  border: 1px solid #e1e5ed;
+
+  border-radius: 20px;
+
+  box-shadow: 0 15px 40px rgba(25, 39, 69, 0.07);
+}
+
+.result-header {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+}
+
+.result-header h2 {
+  margin-top: 4px;
+
+  font-size: 27px;
+}
+
+.result-icon {
+  width: 52px;
+  height: 52px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #eef2ff;
+
+  border-radius: 14px;
+
+  font-size: 25px;
+}
+
+/* ================================================================
+   MAIN PREDICTION
+================================================================ */
+
+.prediction-main {
+  margin-top: 25px;
+
+  padding: 25px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  background:
+    linear-gradient(135deg,
+      #f4f6ff,
+      #f9fbff);
+
+  border-radius: 16px;
+}
+
+.delay-value {
+  font-size: 52px;
+
+  font-weight: 800;
+
+  line-height: 1;
+
+  color: #172033;
+}
+
+.delay-value span {
+  margin-left: 8px;
+
+  font-size: 16px;
+
+  font-weight: 600;
+
+  color: #697386;
+}
+
+.risk-badge {
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  padding: 10px 15px;
+
+  border-radius: 20px;
+
+  font-size: 12px;
+
+  font-weight: 800;
+}
+
+.risk-low {
+  background: #eaf8f0;
+
+  color: #198754;
+}
+
+.risk-medium {
+  background: #fff7df;
+
+  color: #a16b00;
+}
+
+.risk-high {
+  background: #fff0ee;
+
+  color: #c0392b;
+}
+
+/* ================================================================
+   REASONS
+================================================================ */
+
+.prediction-reasons {
+  margin-top: 25px;
+
+  padding-top: 25px;
+
+  border-top: 1px solid #e8ebf1;
+}
+
+.prediction-reasons h3,
+.prediction-weather h3 {
+  font-size: 16px;
+}
+
+.prediction-reasons ul {
+  margin-top: 12px;
+
+  padding-left: 20px;
+}
+
+.prediction-reasons li {
+  margin-bottom: 6px;
+
+  color: #596275;
+
+  font-size: 13px;
+}
+
+/* ================================================================
+   PREDICTION WEATHER
+================================================================ */
+
+.prediction-weather {
+  margin-top: 25px;
+
+  padding-top: 25px;
+
+  border-top: 1px solid #e8ebf1;
+}
+
+.prediction-weather-grid {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 12px;
+
+  margin-top: 14px;
+}
+
+.prediction-weather-grid>div {
+  padding: 14px;
+
+  background: #f8f9fc;
+
+  border-radius: 10px;
+}
+
+.prediction-weather-grid span {
+  display: block;
+
+  font-size: 11px;
+
+  color: #7a8394;
+}
+
+.prediction-weather-grid strong {
+  display: block;
+
+  margin-top: 3px;
+
+  font-size: 14px;
+}
+
+/* ================================================================
+   MODEL INFO
+================================================================ */
+
+.model-info {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  margin-top: 22px;
+
+  padding: 14px;
+
+  background: #f7f8fb;
+
+  border-radius: 10px;
+}
+
+.model-info span {
+  font-size: 20px;
+}
+
+.model-info p {
+  font-size: 12px;
+
+  color: #697386;
+}
+
+/* ================================================================
+   RESPONSIVE TABLET
+================================================================ */
+
+@media (max-width: 900px) {
+  .hero-section {
+    grid-template-columns: 1fr;
+
+    text-align: center;
+  }
+
+  .hero-content {
+    max-width: 750px;
+
+    margin: 0 auto;
+  }
+
+  .hero-description {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .prediction-content {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .prediction-weather-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ================================================================
+   MOBILE RESPONSIVENESS - FINAL POLISH
+================================================================ */
+
+@media (max-width: 600px) {
+
+  /* --------------------------------------------------------------
+     GLOBAL
+  -------------------------------------------------------------- */
+
+  body {
+    overflow-x: hidden;
+  }
+
+  .home-page,
+  .prediction-page {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  /* --------------------------------------------------------------
+     NAVBAR
+  -------------------------------------------------------------- */
+
+  .navbar {
+    padding: 14px 16px;
+
+    gap: 12px;
+  }
+
+  .navbar-brand {
+    font-size: 15px;
+
+    white-space: nowrap;
+  }
+
+  .navbar-icon {
+    font-size: 18px;
+  }
+
+  .navbar-links {
+    gap: 12px;
+  }
+
+  .navbar-links a {
+    font-size: 12px;
+  }
+
+  /* --------------------------------------------------------------
+     HOME HERO
+  -------------------------------------------------------------- */
+
+  .hero-section {
+    min-height: auto;
+
+    padding: 55px 20px 45px;
+
+    grid-template-columns: 1fr;
+
+    text-align: center;
+  }
+
+  .hero-content {
+    width: 100%;
+  }
+
+  .hero-tag {
+    font-size: 10px;
+
+    letter-spacing: 1.5px;
+  }
+
+  .hero-section h1 {
+    font-size: 38px;
+
+    line-height: 1.08;
+  }
+
+  .hero-description {
+    max-width: 100%;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .primary-button {
+    width: 100%;
+
+    max-width: 300px;
+
+    text-align: center;
+  }
+
+  .hero-visual {
+    min-height: 240px;
+
+    margin-top: 20px;
+  }
+
+  .airplane-icon {
+    font-size: 70px;
+  }
+
+  /* --------------------------------------------------------------
+     FEATURES
+  -------------------------------------------------------------- */
+
+  .features-section {
+    padding: 45px 20px;
+  }
+
+  .features-section h2 {
+    font-size: 28px;
+  }
+
+  .feature-grid {
+    grid-template-columns: 1fr;
+
+    gap: 15px;
+  }
+
+  .feature-card {
+    padding: 22px;
+  }
+
+  /* --------------------------------------------------------------
+     PREDICTION HERO
+  -------------------------------------------------------------- */
+
+  .prediction-hero {
+    padding: 45px 20px 35px;
+
+    text-align: center;
+  }
+
+  .prediction-hero h1 {
+    font-size: 34px;
+
+    line-height: 1.15;
+  }
+
+  .prediction-hero p {
+    font-size: 14px;
+
+    line-height: 1.7;
+  }
+
+  /* --------------------------------------------------------------
+     PREDICTION CONTENT
+  -------------------------------------------------------------- */
+
+  .prediction-content {
+    grid-template-columns: 1fr;
+
+    gap: 18px;
+
+    padding: 0 16px;
+  }
+
+  .prediction-form-section {
+    width: 100%;
+  }
+
+  .prediction-side {
+    width: 100%;
+  }
+
+  /* --------------------------------------------------------------
+     FLIGHT FORM
+  -------------------------------------------------------------- */
+
+  .flight-form {
+    padding: 20px 16px;
+
+    border-radius: 16px;
+  }
+
+  .form-header h2 {
+    font-size: 23px;
+
+    line-height: 1.25;
+  }
+
+  .form-header p {
+    font-size: 13px;
+
+    line-height: 1.6;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+
+    gap: 14px;
+  }
+
+  .form-group label {
+    font-size: 12px;
+  }
+
+  .form-group input,
+  .form-group select {
+    width: 100%;
+
+    min-height: 46px;
+
+    font-size: 14px;
+  }
+
+  .weather-notice {
+    padding: 14px;
+
+    gap: 10px;
+
+    margin-top: 18px;
+  }
+
+  .weather-notice strong {
+    font-size: 13px;
+  }
+
+  .weather-notice p {
+    font-size: 11px;
+
+    line-height: 1.5;
+  }
+
+  .predict-button {
+    width: 100%;
+
+    min-height: 50px;
+
+    margin-top: 18px;
+
+    font-size: 14px;
+  }
+
+  /* --------------------------------------------------------------
+     WEATHER CARD
+  -------------------------------------------------------------- */
+
+  .weather-card {
+    padding: 18px;
+
+    border-radius: 16px;
+  }
+
+  .weather-card-header {
+    gap: 10px;
+
+    margin-bottom: 18px;
+  }
+
+  .weather-icon {
+    width: 42px;
+    height: 42px;
+
+    flex-shrink: 0;
+
+    font-size: 20px;
+  }
+
+  .weather-label {
+    font-size: 10px;
+  }
+
+  .weather-card-header h3 {
+    font-size: 18px;
+  }
+
+  .live-indicator {
+    font-size: 9px;
+  }
+
+  /* Weather main temperature */
+
+  .weather-main {
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: 14px;
+  }
+
+  .temperature-section {
+    justify-content: center;
+
+    padding: 16px;
+  }
+
+  .temperature-icon {
+    font-size: 28px;
+  }
+
+  .temperature-value {
+    font-size: 40px;
+  }
+
+  .temperature-value span {
+    font-size: 18px;
+  }
+
+  .temperature-label {
+    font-size: 10px;
+  }
+
+  .weather-summary {
+    padding: 12px;
+  }
+
+  .weather-summary strong {
+    font-size: 12px;
+  }
+
+  .weather-summary p {
+    font-size: 11px;
+  }
+
+  /* Weather metrics */
+
+  .weather-grid {
+    grid-template-columns: 1fr 1fr;
+
+    gap: 9px;
+
+    margin-top: 14px;
+  }
+
+  .weather-item {
+    min-width: 0;
+
+    padding: 11px;
+
+    gap: 8px;
+  }
+
+  .weather-item-icon {
+    font-size: 17px;
+  }
+
+  .weather-item-label {
+    font-size: 9px;
+  }
+
+  .weather-item strong {
+    font-size: 12px;
+  }
+
+  .weather-footer {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 5px;
+
+    margin-top: 14px;
+
+    font-size: 10px;
+  }
+
+  /* --------------------------------------------------------------
+     INFO CARD
+  -------------------------------------------------------------- */
+
+  .info-card {
+    padding: 18px;
+
+    gap: 12px;
+  }
+
+  .info-card h3 {
+    font-size: 16px;
+  }
+
+  .info-card p {
+    font-size: 11px;
+
+    line-height: 1.6;
+  }
+
+  /* --------------------------------------------------------------
+     ERROR MESSAGE
+  -------------------------------------------------------------- */
+
+  .error-message {
+    margin: 0 16px 18px;
+
+    padding: 14px;
+
+    font-size: 12px;
+  }
+
+  .error-message strong {
+    font-size: 13px;
+  }
+
+  .error-message p {
+    font-size: 11px;
+  }
+
+  /* --------------------------------------------------------------
+     LOADING
+  -------------------------------------------------------------- */
+
+  .result-section {
+    padding: 18px 16px;
+  }
+
+  .loading-container {
+    padding: 35px 18px;
+
+    border-radius: 16px;
+  }
+
+  .loading-animation {
+    width: 75px;
+    height: 75px;
+  }
+
+  .loading-plane {
+    font-size: 28px;
+  }
+
+  .orbit-one {
+    width: 55px;
+    height: 55px;
+  }
+
+  .orbit-two {
+    width: 75px;
+    height: 75px;
+  }
+
+  .loading-container h3 {
+    font-size: 18px;
+  }
+
+  .loading-container>p {
+    font-size: 12px;
+
+    line-height: 1.6;
+  }
+
+  .loading-steps {
+    gap: 6px;
+  }
+
+  .loading-steps span {
+    font-size: 10px;
+
+    padding: 6px 9px;
+  }
+
+  /* --------------------------------------------------------------
+     PREDICTION RESULT
+  -------------------------------------------------------------- */
+
+  .prediction-result {
+    padding: 18px;
+
+    border-radius: 16px;
+  }
+
+  .prediction-result h2 {
+    font-size: 22px;
+  }
+
+  .prediction-result h3 {
+    font-size: 17px;
+  }
+
+  .prediction-result p {
+    font-size: 12px;
+
+    line-height: 1.6;
+  }
+
+  .prediction-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .prediction-weather {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .reasons-list {
+    grid-template-columns: 1fr;
+  }
+
+  .model-info {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* ================================================================
+   VERY SMALL PHONES
+================================================================ */
+
+@media (max-width: 380px) {
+
+  .navbar {
+    padding: 12px;
+  }
+
+  .navbar-brand {
+    font-size: 13px;
+  }
+
+  .navbar-links {
+    gap: 8px;
+  }
+
+  .navbar-links a {
+    font-size: 10px;
+  }
+
+  .hero-section h1 {
+    font-size: 32px;
+  }
+
+  .prediction-hero h1 {
+    font-size: 30px;
+  }
+
+  .weather-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .temperature-value {
+    font-size: 36px;
+  }
+
+  .predict-button {
+    font-size: 13px;
+  }
+}
+
+/* ================================================================
+   FORM VALIDATION
+================================================================ */
+
+.field-error {
+  display: block;
+
+  margin-top: 6px;
+
+  color: #c0392b;
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  line-height: 1.4;
+}
+
+.form-group:has(.field-error) input,
+.form-group:has(.field-error) select {
+  border-color: #e05a47;
+
+  background: #fff8f7;
+
+  box-shadow: 0 0 0 3px rgba(224, 90, 71, 0.08);
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+
+  border-color: #315efb;
+
+  box-shadow: 0 0 0 3px rgba(49, 94, 251, 0.1);
+}
+
+/* ================================================================
+   SEARCHABLE CITY INPUTS
+================================================================ */
+
+.search-select {
+  position: relative;
+}
+
+.search-select input {
+  width: 100%;
+  padding-right: 42px;
+}
+
+.search-icon {
+  position: absolute;
+
+  right: 14px;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  pointer-events: none;
+
+  font-size: 15px;
+}
+
+.search-dropdown {
+  position: absolute;
+
+  z-index: 100;
+
+  top: calc(100% + 6px);
+
+  left: 0;
+  right: 0;
+
+  max-height: 220px;
+
+  overflow-y: auto;
+
+  background: #ffffff;
+
+  border: 1px solid #dfe4ec;
+
+  border-radius: 12px;
+
+  box-shadow: 0 14px 30px rgba(25, 39, 69, 0.12);
+
+  padding: 6px;
+}
+
+.search-option {
+  display: block;
+
+  width: 100%;
+
+  padding: 11px 12px;
+
+  border: none;
+
+  border-radius: 8px;
+
+  background: transparent;
+
+  text-align: left;
+
+  color: #192745;
+
+  font-size: 13px;
+
+  cursor: pointer;
+}
+
+.search-option:hover {
+  background: #eef4ff;
+
+  color: #315efb;
+}
+
+.no-search-results {
+  padding: 14px;
+
+  text-align: center;
+
+  color: #7a8394;
+
+  font-size: 12px;
+}
+
+
+/* ================================================================
+   STOPS CONTROL
+================================================================ */
+
+.stops-control {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  min-height: 46px;
+
+  border: 1px solid #dfe4ec;
+
+  border-radius: 10px;
+
+  background: #ffffff;
+
+  overflow: hidden;
+}
+
+.stops-button {
+  width: 48px;
+
+  height: 46px;
+
+  border: none;
+
+  background: #f5f7fb;
+
+  color: #315efb;
+
+  font-size: 24px;
+
+  font-weight: 500;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.stops-button:hover:not(:disabled) {
+  background: #eef4ff;
+}
+
+.stops-button:disabled {
+  color: #b8bec9;
+
+  cursor: not-allowed;
+}
+
+.stops-value {
+  display: flex;
+
+  align-items: baseline;
+
+  justify-content: center;
+
+  gap: 6px;
+
+  flex: 1;
+}
+
+.stops-value strong {
+  font-size: 17px;
+
+  color: #192745;
+}
+
+.stops-value span {
+  font-size: 11px;
+
+  color: #7a8394;
+}
+
+
+/* ================================================================
+   DATE INPUT
+================================================================ */
+
+.date-input-wrapper {
+  position: relative;
+}
+
+.date-input-wrapper input {
+  width: 100%;
+
+  padding-right: 42px;
+}
+
+.date-icon {
+  position: absolute;
+
+  right: 14px;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  pointer-events: none;
+
+  font-size: 16px;
+}
+
+/* =========================================
+   DARK MODE THEME
+========================================= */
+
+body {
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease;
+}
+
+/* THEME TOGGLE */
+.theme-toggle {
+  width: 38px;
+  height: 38px;
+  border: 1px solid #dfe4ec;
+  border-radius: 50%;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 17px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.theme-toggle:hover {
+  transform: translateY(-1px);
+}
+
+/* DARK BODY */
+body.dark-mode {
+  background: #0f172a;
+  color: #e5e7eb;
+}
+
+/* NAVBAR */
+body.dark-mode .navbar {
+  background: #111827;
+  border-bottom-color: #263247;
+}
+
+body.dark-mode .navbar-brand {
+  color: #f8fafc;
+}
+
+body.dark-mode .navbar-links a {
+  color: #cbd5e1;
+}
+
+body.dark-mode .navbar-links a:hover {
+  color: #ffffff;
+}
+
+body.dark-mode .theme-toggle {
+  background: #1f2937;
+  border-color: #39465c;
+}
+
+/* HOME PAGE */
+body.dark-mode .home-page,
+body.dark-mode .prediction-page {
+  background: #0f172a;
+}
+
+body.dark-mode .hero-content h1,
+body.dark-mode .prediction-hero h1,
+body.dark-mode .features-section h2 {
+  color: #f8fafc;
+}
+
+body.dark-mode .hero-description,
+body.dark-mode .prediction-hero p {
+  color: #94a3b8;
+}
+
+/* FEATURE CARDS */
+body.dark-mode .feature-card {
+  background: #111827;
+  border-color: #263247;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .feature-card h3 {
+  color: #f8fafc;
+}
+
+body.dark-mode .feature-card p {
+  color: #94a3b8;
+}
+
+/* PREDICTION FORM */
+body.dark-mode .flight-form {
+  background: #111827;
+  border-color: #263247;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .form-header h2 {
+  color: #f8fafc;
+}
+
+body.dark-mode .form-header p {
+  color: #94a3b8;
+}
+
+body.dark-mode .form-group label {
+  color: #cbd5e1;
+}
+
+/* INPUTS AND SELECTS */
+body.dark-mode .form-group input,
+body.dark-mode .form-group select,
+body.dark-mode .search-select input,
+body.dark-mode .stops-control {
+  background: #1f2937;
+  border-color: #39465c;
+  color: #f8fafc;
+}
+
+body.dark-mode .form-group input::placeholder,
+body.dark-mode .search-select input::placeholder {
+  color: #64748b;
+}
+
+body.dark-mode .form-group input:focus,
+body.dark-mode .form-group select:focus {
+  border-color: #5b7cff;
+  box-shadow: 0 0 0 3px rgba(91, 124, 255, 0.15);
+}
+
+/* DROPDOWN */
+body.dark-mode .search-dropdown {
+  background: #1f2937;
+  border-color: #39465c;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.35);
+}
+
+body.dark-mode .search-option {
+  color: #e5e7eb;
+}
+
+body.dark-mode .search-option:hover {
+  background: #293548;
+  color: #7c9aff;
+}
+
+body.dark-mode .no-search-results {
+  color: #94a3b8;
+}
+
+/* STOPS CONTROL */
+body.dark-mode .stops-button {
+  background: #293548;
+  color: #7c9aff;
+}
+
+body.dark-mode .stops-button:hover:not(:disabled) {
+  background: #334155;
+}
+
+body.dark-mode .stops-value strong {
+  color: #f8fafc;
+}
+
+body.dark-mode .stops-value span {
+  color: #94a3b8;
+}
+
+/* DATE INPUT */
+body.dark-mode input[type="date"] {
+  color-scheme: dark;
+}
+
+/* WEATHER NOTICE */
+body.dark-mode .weather-notice {
+  background: #172235;
+  border-color: #2d3b52;
+  color: #cbd5e1;
+}
+
+body.dark-mode .weather-notice strong {
+  color: #f8fafc;
+}
+
+body.dark-mode .weather-notice p {
+  color: #94a3b8;
+}
+
+/* WEATHER CARD */
+body.dark-mode .weather-card {
+  background: #111827;
+  border-color: #263247;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .weather-card h3 {
+  color: #f8fafc;
+}
+
+body.dark-mode .weather-label {
+  color: #7c9aff;
+}
+
+body.dark-mode .temperature-value {
+  color: #f8fafc;
+}
+
+body.dark-mode .temperature-label,
+body.dark-mode .weather-item-label {
+  color: #94a3b8;
+}
+
+body.dark-mode .weather-summary,
+body.dark-mode .weather-item {
+  background: #172235;
+  border-color: #2d3b52;
+}
+
+body.dark-mode .weather-summary strong,
+body.dark-mode .weather-item strong {
+  color: #e5e7eb;
+}
+
+body.dark-mode .weather-summary p {
+  color: #94a3b8;
+}
+
+body.dark-mode .weather-footer {
+  border-top-color: #263247;
+  color: #94a3b8;
+}
+
+/* INFO CARD */
+body.dark-mode .info-card {
+  background: #111827;
+  border-color: #263247;
+  color: #e5e7eb;
+}
+
+body.dark-mode .info-card h3 {
+  color: #f8fafc;
+}
+
+body.dark-mode .info-card p {
+  color: #94a3b8;
+}
+
+/* ERROR */
+body.dark-mode .error-message {
+  background: #2a1a1a;
+  border-color: #5b2a2a;
+}
+
+body.dark-mode .error-message strong {
+  color: #fca5a5;
+}
+
+body.dark-mode .error-message p {
+  color: #cbd5e1;
+}
+
+/* LOADING */
+body.dark-mode .loading-container {
+  background: #111827;
+  border-color: #263247;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .loading-container h3 {
+  color: #f8fafc;
+}
+
+body.dark-mode .loading-container>p {
+  color: #94a3b8;
+}
+
+body.dark-mode .loading-steps span {
+  background: #1f2937;
+  color: #94a3b8;
+}
+
+body.dark-mode .loading-steps .loading-active {
+  color: #7c9aff;
+  background: #17264a;
+}
+
+/* PREDICTION RESULT */
+body.dark-mode .prediction-result {
+  background: #111827;
+  border-color: #263247;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .result-header h2 {
+  color: #f8fafc;
+}
+
+body.dark-mode .result-label {
+  color: #7c9aff;
+}
+
+body.dark-mode .delay-value {
+  color: #f8fafc;
+}
+
+body.dark-mode .delay-value span {
+  color: #94a3b8;
+}
+
+/* REASONS */
+body.dark-mode .prediction-reasons {
+  background: #172235;
+  border-color: #2d3b52;
+}
+
+body.dark-mode .prediction-reasons h3 {
+  color: #f8fafc;
+}
+
+body.dark-mode .prediction-reasons li,
+body.dark-mode .prediction-reasons p {
+  color: #cbd5e1;
+}
+
+/* PREDICTION WEATHER */
+body.dark-mode .prediction-weather {
+  background: #172235;
+  border-color: #2d3b52;
+}
+
+body.dark-mode .prediction-weather h3 {
+  color: #f8fafc;
+}
+
+body.dark-mode .prediction-weather-grid>div {
+  background: #1f2937;
+  border-color: #39465c;
+}
+
+body.dark-mode .prediction-weather-grid span {
+  color: #94a3b8;
+}
+
+body.dark-mode .prediction-weather-grid strong {
+  color: #f8fafc;
+}
+
+/* MODEL INFO */
+body.dark-mode .model-info {
+  background: #17264a;
+  border-color: #30436b;
+}
+
+body.dark-mode .model-info p {
+  color: #cbd5e1;
+}
+
+/* FOOTER / COMMON TEXT */
+body.dark-mode .field-error {
+  color: #fca5a5;
+}
+
+/* ================================================================
+   FINAL DARK MODE OVERRIDE
+   Put this at the VERY BOTTOM of index.css
+================================================================ */
+
+/* ================================================================
+   GLOBAL
+================================================================ */
+
+body.dark-mode {
+  background: #080f1c !important;
+  color: #e8eef8 !important;
+}
+
+body.dark-mode .home-page,
+body.dark-mode .prediction-page {
+  background: #080f1c !important;
+  color: #e8eef8 !important;
+}
+
+
+/* ================================================================
+   NAVBAR
+================================================================ */
+
+body.dark-mode .navbar {
+  background: #0d1728 !important;
+  border-bottom: 1px solid #24344d !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3) !important;
+}
+
+body.dark-mode .navbar-brand {
+  color: #f5f8ff !important;
+}
+
+body.dark-mode .navbar-links a {
+  color: #b9c7da !important;
+}
+
+body.dark-mode .navbar-links a:hover {
+  color: #ffffff !important;
+}
+
+body.dark-mode .theme-toggle {
+  background: #18263d !important;
+  border-color: #344965 !important;
+  color: #ffffff !important;
+}
+
+
+/* ================================================================
+   HOME PAGE — HERO
+================================================================ */
+
+body.dark-mode .hero-section {
+  background:
+    radial-gradient(circle at 80% 25%,
+      rgba(49, 94, 251, 0.18),
+      transparent 35%),
+    linear-gradient(135deg,
+      #080f1c 0%,
+      #0d182a 55%,
+      #101e33 100%) !important;
+
+  color: #ffffff !important;
+}
+
+body.dark-mode .hero-content {
+  color: #ffffff !important;
+}
+
+body.dark-mode .hero-content h1 {
+  color: #f8fbff !important;
+}
+
+body.dark-mode .hero-description {
+  color: #aab8ca !important;
+}
+
+body.dark-mode .hero-tag {
+  color: #6f94ff !important;
+}
+
+
+/* ================================================================
+   HOME PAGE — HERO BUTTON
+================================================================ */
+
+body.dark-mode .primary-button {
+  background: #315efb !important;
+  color: #ffffff !important;
+}
+
+body.dark-mode .primary-button:hover {
+  background: #416cff !important;
+  color: #ffffff !important;
+}
+
+
+/* ================================================================
+   HOME PAGE — HERO VISUAL
+================================================================ */
+
+body.dark-mode .hero-visual {
+  background:
+    radial-gradient(circle at 30% 20%,
+      rgba(255, 255, 255, 0.08),
+      transparent 30%),
+    linear-gradient(145deg,
+      #244fc9,
+      #315efb,
+      #2447ad) !important;
+
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.45),
+    0 0 50px rgba(49, 94, 251, 0.12) !important;
+}
+
+body.dark-mode .weather-info,
+body.dark-mode .prediction-info {
+  background: #f8fbff !important;
+  color: #172033 !important;
+}
+
+
+/* ================================================================
+   HOME PAGE — FEATURES SECTION
+================================================================ */
+
+body.dark-mode .features-section {
+  background: #0b1525 !important;
+  color: #ffffff !important;
+}
+
+body.dark-mode .features-section h2 {
+  color: #f7faff !important;
+}
+
+body.dark-mode .feature-grid {
+  color: #ffffff !important;
+}
+
+body.dark-mode .feature-card {
+  background: #111e31 !important;
+  border: 1px solid #273a55 !important;
+  color: #ffffff !important;
+
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.25) !important;
+}
+
+body.dark-mode .feature-card:hover {
+  background: #14233a !important;
+  border-color: #3b5680 !important;
+}
+
+body.dark-mode .feature-card h3 {
+  color: #f2f6fc !important;
+}
+
+body.dark-mode .feature-card p {
+  color: #9eacbf !important;
+}
+
+body.dark-mode .feature-icon {
+  background: #1a2d4c !important;
+}
+
+
+/* ================================================================
+   PREDICTION PAGE
+================================================================ */
+
+body.dark-mode .prediction-page {
+  background: #080f1c !important;
+}
+
+
+/* ================================================================
+   PREDICTION HERO
+================================================================ */
+
+body.dark-mode .prediction-hero {
+  background:
+    radial-gradient(circle at 50% 0%,
+      rgba(49, 94, 251, 0.16),
+      transparent 50%),
+    #080f1c !important;
+
+  color: #ffffff !important;
+}
+
+body.dark-mode .prediction-hero h1 {
+  color: #f8fbff !important;
+}
+
+body.dark-mode .prediction-hero>p:last-child {
+  color: #a5b3c6 !important;
+}
+
+
+/* ================================================================
+   FORM
+================================================================ */
+
+body.dark-mode .flight-form {
+  background: #111e31 !important;
+  border-color: #273a55 !important;
+
+  box-shadow:
+    0 18px 45px rgba(0, 0, 0, 0.28) !important;
+
+  color: #ffffff !important;
+}
+
+body.dark-mode .form-header h2 {
+  color: #f3f7fd !important;
+}
+
+body.dark-mode .form-header p:last-child {
+  color: #9eacbf !important;
+}
+
+body.dark-mode .form-group label {
+  color: #cbd6e5 !important;
+}
+
+
+/* ================================================================
+   INPUTS
+================================================================ */
+
+body.dark-mode .form-group input,
+body.dark-mode .form-group select,
+body.dark-mode .search-select input {
+  background: #17263c !important;
+  border-color: #354b68 !important;
+  color: #edf3fb !important;
+}
+
+body.dark-mode .form-group input::placeholder,
+body.dark-mode .search-select input::placeholder {
+  color: #77879d !important;
+}
+
+body.dark-mode .form-group input:hover,
+body.dark-mode .form-group select:hover,
+body.dark-mode .search-select input:hover {
+  border-color: #4a6385 !important;
+}
+
+body.dark-mode .form-group input:focus,
+body.dark-mode .form-group select:focus,
+body.dark-mode .search-select input:focus {
+  background: #1b2c46 !important;
+  border-color: #5278ff !important;
+
+  box-shadow:
+    0 0 0 3px rgba(82, 120, 255, 0.15) !important;
+}
+
+body.dark-mode input[type="date"] {
+  color-scheme: dark !important;
+}
+
+
+/* ================================================================
+   SEARCH DROPDOWN
+================================================================ */
+
+body.dark-mode .search-dropdown {
+  background: #17263c !important;
+  border-color: #354b68 !important;
+
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.4) !important;
+}
+
+body.dark-mode .search-option {
+  color: #dce5f1 !important;
+}
+
+body.dark-mode .search-option:hover {
+  background: #243a5b !important;
+  color: #7d9cff !important;
+}
+
+body.dark-mode .no-search-results {
+  color: #8494aa !important;
+}
+
+
+/* ================================================================
+   STOPS CONTROL
+================================================================ */
+
+body.dark-mode .stops-control {
+  background: #17263c !important;
+  border-color: #354b68 !important;
+}
+
+body.dark-mode .stops-button {
+  background: #20334f !important;
+  color: #7d9cff !important;
+}
+
+body.dark-mode .stops-button:hover:not(:disabled) {
+  background: #2a4265 !important;
+}
+
+body.dark-mode .stops-button:disabled {
+  color: #53647b !important;
+}
+
+body.dark-mode .stops-value strong {
+  color: #f2f6fc !important;
+}
+
+body.dark-mode .stops-value span {
+  color: #8494aa !important;
+}
+
+
+/* ================================================================
+   WEATHER NOTICE
+================================================================ */
+
+body.dark-mode .weather-notice {
+  background: #12243b !important;
+  border-color: #2b486c !important;
+}
+
+body.dark-mode .weather-notice strong {
+  color: #7da0ff !important;
+}
+
+body.dark-mode .weather-notice p {
+  color: #9aabc0 !important;
+}
+
+
+/* ================================================================
+   PREDICT BUTTON
+================================================================ */
+
+body.dark-mode .predict-button {
+  background: #315efb !important;
+  color: #ffffff !important;
+}
+
+body.dark-mode .predict-button:hover:not(:disabled) {
+  background: #416cff !important;
+}
+
+
+/* ================================================================
+   WEATHER CARD
+================================================================ */
+
+body.dark-mode .weather-card {
+  background: #111e31 !important;
+  border-color: #273a55 !important;
+
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.28) !important;
+
+  color: #ffffff !important;
+}
+
+body.dark-mode .weather-icon {
+  background: #1a2d4c !important;
+}
+
+body.dark-mode .weather-card-header h3 {
+  color: #f3f7fd !important;
+}
+
+body.dark-mode .weather-label {
+  color: #6f94ff !important;
+}
+
+body.dark-mode .live-indicator {
+  color: #42cf7a !important;
+}
+
+body.dark-mode .temperature-section {
+  background: #17263c !important;
+}
+
+body.dark-mode .temperature-value {
+  color: #f5f8fd !important;
+}
+
+body.dark-mode .temperature-value span {
+  color: #8494aa !important;
+}
+
+body.dark-mode .temperature-label {
+  color: #8999af !important;
+}
+
+body.dark-mode .weather-summary {
+  background: #17263c !important;
+  border-color: #304663 !important;
+}
+
+body.dark-mode .weather-summary strong {
+  color: #edf3fa !important;
+}
+
+body.dark-mode .weather-summary p {
+  color: #96a6bb !important;
+}
+
+body.dark-mode .weather-item {
+  background: #17263c !important;
+  border-color: #304663 !important;
+}
+
+body.dark-mode .weather-item-label {
+  color: #8999af !important;
+}
+
+body.dark-mode .weather-item strong {
+  color: #e8eef7 !important;
+}
+
+body.dark-mode .weather-loading {
+  color: #9aaabd !important;
+}
+
+body.dark-mode .weather-error-message {
+  color: #ff9fa8 !important;
+}
+
+body.dark-mode .weather-footer {
+  border-top-color: #293c56 !important;
+  color: #8494aa !important;
+}
+
+
+/* ================================================================
+   INFO CARD
+================================================================ */
+
+body.dark-mode .info-card {
+  background: #111e31 !important;
+  border-color: #273a55 !important;
+
+  color: #ffffff !important;
+}
+
+body.dark-mode .info-card h3 {
+  color: #f1f5fb !important;
+}
+
+body.dark-mode .info-card p {
+  color: #9aaabd !important;
+}
+
+
+/* ================================================================
+   ERROR
+================================================================ */
+
+body.dark-mode .error-message {
+  background: #2b191e !important;
+  border-color: #68333b !important;
+  color: #ffb6bd !important;
+}
+
+body.dark-mode .error-message strong {
+  color: #ffb6bd !important;
+}
+
+body.dark-mode .error-message p {
+  color: #d0b8bd !important;
+}
+
+
+/* ================================================================
+   LOADING
+================================================================ */
+
+body.dark-mode .loading-container {
+  background: #111e31 !important;
+  border-color: #273a55 !important;
+
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.28) !important;
+}
+
+body.dark-mode .loading-container h3 {
+  color: #f5f8fd !important;
+}
+
+body.dark-mode .loading-container>p {
+  color: #98a8bd !important;
+}
+
+body.dark-mode .loading-orbit {
+  border-color: #38598f !important;
+}
+
+body.dark-mode .loading-steps span {
+  background: #182840 !important;
+  color: #8e9eb3 !important;
+}
+
+body.dark-mode .loading-steps .loading-active {
+  background: #1c3155 !important;
+  color: #7e9dff !important;
+}
+
+
+/* ================================================================
+   PREDICTION RESULT
+================================================================ */
+
+body.dark-mode .prediction-result {
+  background: #111e31 !important;
+  border-color: #273a55 !important;
+
+  box-shadow:
+    0 18px 45px rgba(0, 0, 0, 0.28) !important;
+
+  color: #ffffff !important;
+}
+
+body.dark-mode .result-header h2 {
+  color: #f4f8fd !important;
+}
+
+body.dark-mode .result-label {
+  color: #6f94ff !important;
+}
+
+body.dark-mode .result-icon {
+  background: #1a2d4c !important;
+}
+
+body.dark-mode .delay-value {
+  color: #f7f9fd !important;
+}
+
+body.dark-mode .delay-value span {
+  color: #8494aa !important;
+}
+
+
+/* ================================================================
+   PREDICTION MAIN
+================================================================ */
+
+body.dark-mode .prediction-main {
+  background:
+    linear-gradient(135deg,
+      #17263d,
+      #1a2c47) !important;
+
+  border: 1px solid #304663 !important;
+}
+
+
+/* ================================================================
+   RISK BADGES
+================================================================ */
+
+body.dark-mode .risk-low {
+  background: #143a29 !important;
+  color: #52dc8b !important;
+}
+
+body.dark-mode .risk-medium {
+  background: #3a3017 !important;
+  color: #e9bd51 !important;
+}
+
+body.dark-mode .risk-high {
+  background: #3d2021 !important;
+  color: #ff7972 !important;
+}
+
+
+/* ================================================================
+   DELAY STATUS
+================================================================ */
+
+body.dark-mode .status-low {
+  background: #102c20 !important;
+  color: #62d994 !important;
+  border-left-color: #35bd70 !important;
+}
+
+body.dark-mode .status-medium {
+  background: #302710 !important;
+  color: #e6bd5b !important;
+  border-left-color: #d6a32d !important;
+}
+
+body.dark-mode .status-high {
+  background: #351b1d !important;
+  color: #ff8b82 !important;
+  border-left-color: #d94a3a !important;
+}
+
+body.dark-mode .status-unknown {
+  background: #1a2433 !important;
+  color: #a8b3c2 !important;
+}
+
+
+/* ================================================================
+   REASONS
+================================================================ */
+
+body.dark-mode .prediction-reasons {
+  border-top-color: #293c56 !important;
+}
+
+body.dark-mode .prediction-reasons h3 {
+  color: #f2f6fc !important;
+}
+
+body.dark-mode .prediction-reasons li {
+  color: #aab8ca !important;
+}
+
+
+/* ================================================================
+   PREDICTION WEATHER
+================================================================ */
+
+body.dark-mode .prediction-weather {
+  border-top-color: #293c56 !important;
+}
+
+body.dark-mode .prediction-weather h3 {
+  color: #f2f6fc !important;
+}
+
+body.dark-mode .prediction-weather-grid>div {
+  background: #17263c !important;
+  border-color: #304663 !important;
+}
+
+body.dark-mode .prediction-weather-grid span {
+  color: #8999af !important;
+}
+
+body.dark-mode .prediction-weather-grid strong {
+  color: #e8eef7 !important;
+}
+
+
+/* ================================================================
+   MODEL INFO
+================================================================ */
+
+body.dark-mode .model-info {
+  background: #14264a !important;
+  border-color: #2b4778 !important;
+}
+
+body.dark-mode .model-info p {
+  color: #bac9dd !important;
+}
+
+
+/* ================================================================
+   VALIDATION
+================================================================ */
+
+body.dark-mode .field-error {
+  color: #ff9fa8 !important;
+}
+
+body.dark-mode .form-group:has(.field-error) input,
+body.dark-mode .form-group:has(.field-error) select {
+  background: #2a1b20 !important;
+  border-color: #b94b57 !important;
+}
+
+
+/* ================================================================
+   MOBILE
+================================================================ */
+
+@media (max-width: 600px) {
+
+  body.dark-mode .hero-section {
+    background:
+      radial-gradient(circle at 50% 20%,
+        rgba(49, 94, 251, 0.15),
+        transparent 45%),
+      #080f1c !important;
+  }
+
+  body.dark-mode .features-section {
+    background: #0b1525 !important;
+  }
+
+  body.dark-mode .prediction-hero {
+    background:
+      radial-gradient(circle at 50% 0%,
+        rgba(49, 94, 251, 0.14),
+        transparent 55%),
+      #080f1c !important;
+  }
+}
