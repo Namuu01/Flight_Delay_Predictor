@@ -457,10 +457,11 @@ The React and Streamlit interfaces are alternative frontends. Both can use the s
 9. The interface displays the estimated delay and any supported explanatory information.
 
 
+## 📄 License
 
 **Project:** Flight Delay Prediction System  
 **Primary objective:** Estimate flight delays using machine learning, flight data, and weather information.  
 **Core model:** TabNet + XGBoost ensemble  
 **Backend:** FastAPI  
-**Frontends:** React.js and Streamlit  
+**Frontends:** React.js 
 **Weather provider:** OpenWeatherMap API
