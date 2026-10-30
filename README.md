@@ -234,33 +234,6 @@ Flight_Delay_Predictor/
 
 **Note:** This tree illustrates the intended modular structure. Keep the actual paths and filenames in the README synchronized with your GitHub repository.
 
-## 🔌 API Endpoints
-
-The backend provides the following endpoints.
-
-| Method | Endpoint | Description |
-|---|---|---|
-| GET | `/` | Root or service information, if configured |
-| GET | `/health` | Checks backend health |
-| GET | `/options` | Retrieves available airlines, sources, and destinations |
-| GET | `/weather/{city}` | Retrieves weather information for a specified city |
-| POST | `/predict` | Accepts flight details and returns a delay prediction |
-
-### 1. Health check
-
-```http
-GET /health
-```
-
-Checks whether the backend service is available.
-
-### 2. Flight options
-
-```http
-GET /options
-```
-
-Returns the available values used to populate flight selection fields.
 
 ### 3. Weather information
 
